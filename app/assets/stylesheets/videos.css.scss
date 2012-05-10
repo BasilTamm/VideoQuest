@@ -1,0 +1,24 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.video {
+  background-color: #352a25;
+  margin: 40px auto;
+  width: 90%;
+  height: 425px;
+}
+
+.video .comments {
+  background-color: grey;
+  float: right;
+  width: 50%;
+}
+
+.video .about {
+  background-color: #f0f0f0;
+}
+
+object {
+  align: center;
+}

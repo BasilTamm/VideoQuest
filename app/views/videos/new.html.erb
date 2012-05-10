@@ -1,0 +1,24 @@
+<h1>Videos#new</h1>
+
+<%= form_for @video, :html => {:multipart => true} do |f| %>
+	<% if @video.errors.any? %>
+	<div class="error_messages">
+		<h2>Form is invalid</h2>
+		<ul>
+			<% for message in @video.errors.full_messages %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<p>
+		<%= f.label :about %> <br />
+		<%= f.text_field :about %>
+	</p>
+	<p>
+		<%= f.label :path %> <br />	
+		<%= f.file_field :path %>	
+	</p>
+	
+	<p class="button"><%= f.submit %></p>
+<%end%>

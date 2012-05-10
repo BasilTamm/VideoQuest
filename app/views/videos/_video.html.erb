@@ -1,0 +1,28 @@
+<%= div_for video do %>
+	<div class="about">
+		<p>Видео добавленно <%= video.user.email %>, <%= video.about %></p>		
+		<%= link_to 'show' , video %>
+				<%= link_to 'delete', video, method: :delete %>
+
+	</div>
+	
+	<div class="comments">	
+		<div class="last_comments">
+			<p>Последние коментарии:</p>
+			
+			<% video.comments.order(:created_at).reverse_order.limit(3).each do |comment| %>
+				<%= render comment %>
+			<% end %>
+		</div>
+		
+		<%= link_to "Все комментарии(#{video.comments.count})", video_comments_path(video) %>
+		<%= link_to 'Добавить комментарий', new_video_comment_path(video) %>
+	</div>
+	
+	<object id="flowplayer" type="application/x-shockwave-flash" width="400" height="320">
+    	<param name="movie" value="flowplayer-3.2.10.swf" /> 
+    	<param name="flashvars" value='config={"clip":{"url":"<%= video.path.to_s %>.flv", "autoPlay": false}},' />	
+    </object>
+    
+	
+<% end %>
